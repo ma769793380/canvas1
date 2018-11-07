@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+}
+li {
+    list-style: none;
+}
+#xxx {
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.pen {
+    position: fixed;
+    top: 20px;
+    left: 50px;
+}
+.eraser {
+    position: fixed;
+    top: 20px;
+    left: 125px;
+}
+.download {
+    position: fixed;
+    top: 20px;
+    left: 200px;
+}
+.clear1 {
+    position: fixed;
+    top: 20px;
+    left: 275px;
+}
+.pen i:active,.eraser i:active,.download i:active,.clear1 i:active {
+    font-size: 35px;
+    color: red;
+}
+.pen i,.eraser i,.download i,.clear1 i {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+ul {
+    position: fixed;
+    top:60px;
+    left:10px;
+}
+ul li {
+    margin-bottom: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
+    box-shadow: 3px 3px 6px 0 rgba(0,0,0,0.75);
+    transition: all 0.3s;
+}
+ul .color1.active,ul .color2.active,ul .color3.active,ul .color4.active,
+ul .color5.active,ul .color6.active {
+    transform: scale(1.2);
+}
+.color1 {
+    background: black;
+}
+.color2 {
+    background: red;
+}
+.color3 {
+    background: green;
+}
+.color4 {
+    background: yellow;
+}
+.color5 {
+    background: blue;
+}
+.color6 {
+    background: purple;
+}
+
+.lineSize {
+    position: fixed;
+    left: 10px;
+    top: 360px;
+}
+.lineSize li {
+    margin-bottom: 20px;
+}
+#line1 {
+    height: 5px;
+    width: 40px;
+    background: black;
+}
+#line2 {
+    height: 8px;
+    width: 40px;
+    background: black;
+}
+#line3 {
+    height: 10px;
+    width: 40px;
+    background: black;
+}
+#line4 {
+    height: 15px;
+    width: 40px;
+    background: black;
+}
