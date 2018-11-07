@@ -1,28 +1,29 @@
 var yyy=document.getElementById('xxx');
 var context=yyy.getContext('2d');
-var lineWidth=3;
+
 
 changeSize();
 
 var using=false;
 var lastPoint={"x":undefined,"y":undefined};
+context.lineWidth=3;
 //拉动窗口事件
-window.onresize=function(){
-    changeSize()
-};
+            window.onresize=function(){
+                changeSize()
+            };
 
 //特性检测（触屏还是鼠标）
-if(document.body.ontouchstart !==undefined){   //触屏设备
-    //触控点击按下事件
-    yyy.ontouchstart=function(aaa){
-        var x=aaa.touches[0].clientX;
-        var y=aaa.touches[0].clientY;
-        if(eraserEnbled){
-            using=true;
-            context.clearRect(x-10,y-10,20,20)
-        }else{
-            using=true;
-            drawCircle(x,y,1);
+            if(document.body.ontouchstart !==undefined){   //触屏设备
+                                                           //触控点击按下事件
+                yyy.ontouchstart=function(aaa){
+                    var x=aaa.touches[0].clientX;
+                    var y=aaa.touches[0].clientY;
+                    if(eraserEnbled){
+                        using=true;
+                        context.clearRect(x-10,y-10,20,20)
+                    }else{
+                        using=true;
+            drawCircle(x,y,0.5);
             lastPoint={"x":x,"y":y};
         }
     };
@@ -36,7 +37,7 @@ if(document.body.ontouchstart !==undefined){   //触屏设备
             }
         }else{
             if (using){
-                drawCircle(x,y,1);
+                drawCircle(x,y,0.5);
                 var newPoint={"x":x,"y":y};
                 drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y);
                 lastPoint=newPoint;
@@ -57,7 +58,7 @@ if(document.body.ontouchstart !==undefined){   //触屏设备
             context.clearRect(x-10,y-10,20,20)
         }else{
             using=true;
-            drawCircle(x,y,1);
+            drawCircle(x,y,0.5);
             lastPoint={"x":x,"y":y};
         }
     };
@@ -71,7 +72,7 @@ if(document.body.ontouchstart !==undefined){   //触屏设备
             }
         }else{
             if (using){
-                drawCircle(x,y,1);
+                drawCircle(x,y,0.5);
                 var newPoint={"x":x,"y":y};
                 drawLine(lastPoint.x,lastPoint.y,newPoint.x,newPoint.y);
                 lastPoint=newPoint;
@@ -90,9 +91,9 @@ function drawLine(x1,y1,x2,y2){
     context.beginPath();
     context.moveTo(x1,y1);
     context.lineTo(x2,y2);
+    context.lineCap = "square";
     //context.lineWidth=3;
     context.stroke();
-    context.closePath();
 }
 //画圆事件
 function drawCircle(x,y,redius){
@@ -204,6 +205,7 @@ colorPurple.onclick=function(){
 };
 
 //画笔的粗细
+
 line1.onclick=function(){
     context.lineWidth=3;
 };
